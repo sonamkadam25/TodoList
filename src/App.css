@@ -1,38 +1,144 @@
+/* Reset some default styles */
+body, html, #root, .App {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #121212;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Center the app content */
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Style the todo-list container */
+.todo-list {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.todo-list:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the input field */
+.todo-list input {
+  width: calc(100% - 82px);
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #282828;
+  color: #e0e0e0;
+  outline: none;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.todo-list input:focus {
+  border-color: #6200ea;
+  background-color: #252525;
+}
+
+/* Style the buttons */
+.todo-list button {
+  margin-left: 10px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #6200ea;
+  color: #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.todo-list button:hover {
+  background-color: #3700b3;
+  transform: scale(1.05);
+}
+
+.todo-list button:active {
+  transform: scale(0.95);
+}
+
+/* Style the filter select dropdown */
+.todo-list select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  background-color: #282828;
+  color: #e0e0e0;
+  outline: none;
+  margin-bottom: 15px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.todo-list select:focus {
+  border-color: #6200ea;
+  background-color: #252525;
+}
+
+/* Style the list */
+.todo-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Style the list items */
+.todo-list li {
+  padding: 12px;
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.todo-list li:last-child {
+  border-bottom: none;
+}
+
+/* Style for completed tasks */
+.todo-list li.completed span {
+  color: #00e676; /* Green */
+}
+
+/* Style for not completed tasks */
+.todo-list li.not-completed span {
+  color: #ff1744; /* Red */
+}
+
+/* Add hover effect to list items */
+.todo-list li:hover {
+  background-color: #2b2b2b;
+}
+
+/* Align buttons in the task item */
+.todo-list li .task-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .todo-list {
+    width: 100%;
+    padding: 15px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .todo-list input {
+    width: calc(100% - 100px);
   }
 }
